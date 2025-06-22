@@ -38,15 +38,14 @@ Dify Instance: A running Dify self-hosted instance (v1.4.3 or newer recommended 
 Tavily API Key: An API key from Tavily. This is essential for the plugin to perform web searches.
 
 
-
-
-📦 Installation
+##📦 Installation
 The Deep Research plugin can be installed in your Dify instance via a local package file.
 
-Package the Plugin
+### 1. Package the Plugin
 cd ~/deepResearch
 
 explore the files, or create ur own improvements
+```
 .
 ├── GUIDE.md
 ├── PRIVACY.md
@@ -64,19 +63,19 @@ explore the files, or create ur own improvements
 └── tools
     ├── deep_research.py
     └── deep_research.yaml
+```
+### 2. Upload to Dify
+- Access your Dify UI.
 
-2. Upload to Dify
-Access your Dify UI.
+- Navigate to the "Plugins" section in the left sidebar.
 
-Navigate to the "Plugins" section in the left sidebar.
+- Click the "Install" button (or "Add Plugin") in the top right.(or install plugin directly from marketplace(if available ))
 
-Click the "Install" button (or "Add Plugin") in the top right.(or install plugin directly from marketplace(if available ))
+- Select "Install via Local File".
 
-Select "Install via Local File".
+- Upload the deep_research_plugin.difypkg file you just created.
 
-Upload the deep_research_plugin.difypkg file you just created.
-
-🔑 Configuration & Credentials
+## 🔑 Configuration & Credentials
 After installing the plugin, you must provide your Tavily API Key:
 
 In the Dify UI, go to the "Plugins" section.
@@ -95,10 +94,10 @@ Your Dify instance must have outbound internet access to reach the Tavily API at
 
 The Dify plugin_daemon service (or the api service if plugin_daemon is integrated) needs to be running and healthy within your Dify Docker environment.
 
-💡 Usage Instructions
+## 💡 Usage Instructions
 Once installed and configured, you can integrate "Deep Research" into your Dify applications.
 
-1. Enable Plugin in Your Application
+### 1. Enable Plugin in Your Application
 Go to "Studio" (or "Applications") in Dify.
 
 Create a new application (e.g., a "Chatflow" or "Agent") or open an existing one.
@@ -107,14 +106,15 @@ On the orchestration canvas, locate the "Tools" section (often on the right side
 
 Enable the "Deep Research" plugin by selecting it from the list.
 
-2. Prompting Your AI (Chatflow/Agent Applications)
+### 2. Prompting Your AI (Chatflow/Agent Applications)
 For conversational applications, the LLM will intelligently decide when to use the tool based on your prompt and the user's input. Craft your System Prompt to guide the LLM's usage:
 
+```
 You are an intelligent research assistant capable of performing real-time web searches.
 You have access to the "Deep Research" tool.
 When the user asks a question that requires current, external, or factual information, you MUST use the "Deep Research" tool to find the answer.
 You can optionally specify the number of search results to retrieve (e.g., "find 10 results").
-
+```
 Example User Prompts:
 - "What are the latest advancements in AI ethics?"
 - "Research the impact of climate change on ocean ecosystems, providing 7 key findings."
